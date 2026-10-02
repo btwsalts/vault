@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vault</title><link rel="icon" href="{{ url_for('static',filename='favicon.svg') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+<div class="shell">
+<nav><a class="logo" href="{{ url_for('index') }}">VAULT</a>{% if session.get('user_id') %}<div class="navlinks"><a href="{{ url_for('activity') }}">Activity</a><a href="{{ url_for('logout') }}">Logout</a></div>{% endif %}</nav>
+{% with messages=get_flashed_messages() %}{% if messages %}<div class="flash">{{ messages[0] }}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+<footer>LOCAL SECRETS MANAGER · LEARNING PROJECT</footer>
+</div>
+</body></html>
