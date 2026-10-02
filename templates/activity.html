@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<section class="formpage"><p class="eyebrow">AUDIT TRAIL</p><h1>Account <em>activity.</em></h1><div class="activity">{% for log in logs %}<div><span>{{ log.created_at }}</span><b>{{ log.action }}</b></div>{% else %}<p class="muted">No activity yet.</p>{% endfor %}</div></section>{% endblock %}
