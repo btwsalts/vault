@@ -81,6 +81,10 @@ def register():
     if request.method == "POST":
         username = request.form.get("username","").strip()
         password = request.form.get("password","")
+        confirm_password = request.form.get("confirm_password","")
+        if password != confirm_password:
+            flash("Passwords do not match.")
+            return render_template("register.html")
         if len(username) < 3 or len(password) < 10:
             flash("Use a username of 3+ characters and a password of at least 10 characters.")
             return render_template("register.html")
